@@ -13,17 +13,23 @@ navLinks.forEach((link) => {
 const menu = document.getElementById("toggle");
 const rightSidebar = document.getElementById("right-sidebar");
 const close = document.getElementById("close");
-const pseudo = document.querySelector(".sidemenu");
-const html = document.querySelector("html");
+const sidemenu = document.querySelector(".sidemenu");
 
+const body = document.querySelector("body");
+body.addEventListener("click", (e) => {
+  if (e.target == sidemenu) {
+    rightSidebar.classList.remove("hidden__sidebar");
+    sidemenu.classList.remove("pseudo");
+  }
+});
 menu.addEventListener("click", () => {
   rightSidebar.classList.toggle("hidden__sidebar");
-  pseudo.classList.add("pseudo");
+  sidemenu.classList.add("pseudo");
 });
 
 close.addEventListener("click", () => {
   rightSidebar.classList.remove("hidden__sidebar");
-  pseudo.classList.remove("pseudo");
+  sidemenu.classList.remove("pseudo");
 });
 
 // Scroll Up Functionality
